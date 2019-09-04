@@ -1,16 +1,19 @@
 import React from 'react';
-import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+    <>
+      <header>
+        <p>[Avatar]</p>
+        <p>[List of ToDo Lists]</p>
       </header>
-    </div>
+      <main>
+        <p>[Page header]</p>
+        <p>ToDos</p>
+        <p>Add a ToDo</p>
+      </main>
+    </>
   );
-}
+};
 
 export default App;

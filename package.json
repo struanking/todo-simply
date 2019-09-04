@@ -11,12 +11,18 @@
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "redux-starter-kit": "0.6.3",
+    "styled-components": "4.3.2",
+    "styled-normalize": "8.0.6",
     "typescript": "3.6.2"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "6.1.0",
+    "@testing-library/react": "9.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -33,9 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@testing-library/dom": "6.1.0",
-    "@testing-library/react": "9.1.4"
   }
 }
