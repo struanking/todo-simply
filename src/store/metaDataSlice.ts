@@ -1,14 +1,16 @@
 import { createSlice } from 'redux-starter-kit';
 
-export interface TodoList {
-  title: string;
-  id: number;
+interface MetaData {
+  activeTodoListId?: number;
+  today: Date;
 }
 
-let initialState: TodoList[] = [];
+let initialState: MetaData = {
+  today: new Date()
+};
 
 const todoListsSlice = createSlice({
-  slice: 'todoLists',
+  slice: 'metaData',
   initialState,
   reducers: {}
 });

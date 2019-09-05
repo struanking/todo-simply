@@ -5,6 +5,10 @@ const store = configureStore({
   reducer: rootReducer,
   // seed data into redux state
   preloadedState: {
+    metaData: {
+      activeTodoListId: 1,
+      today: new Date()
+    },
     todoLists: [
       {
         id: 1,
