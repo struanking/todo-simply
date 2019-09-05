@@ -7,7 +7,7 @@ const store = configureStore({
   preloadedState: {
     metaData: {
       activeTodoListId: 1,
-      today: new Date()
+      today: new Date().toJSON()
     },
     todoLists: [
       {

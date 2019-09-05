@@ -2,11 +2,12 @@ import { createSlice } from 'redux-starter-kit';
 
 interface MetaData {
   activeTodoListId?: number;
-  today: Date;
+  today: string;
 }
 
+const today = new Date().toJSON();
 let initialState: MetaData = {
-  today: new Date()
+  today
 };
 
 const todoListsSlice = createSlice({

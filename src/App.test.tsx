@@ -1,11 +1,11 @@
 import React from 'react';
-import { renderWithRedux } from './test-utils';
+import { renderWithRedux, fireEvent } from './test-utils';
 import App from './App';
 
 const DEFAULT_STATE = Object.freeze({
   metaData: {
     activeTodoListId: 1,
-    today: new Date('2019-09-01')
+    today: new Date('2019-09-01').toJSON()
   },
   todoLists: [{ title: 'A todo list', id: 1 }],
   todos: [
@@ -36,6 +36,7 @@ const DEFAULT_STATE = Object.freeze({
   }
 });
 
+// option to pass in specific state to make test robust or just use the default
 function setUp(preloadedState = DEFAULT_STATE) {
   return renderWithRedux(<App />, {
     preloadedState
@@ -75,4 +76,17 @@ test('it renders list of todos', () => {
   const todos = getByTestId('todos');
 
   expect(todos.querySelectorAll('li')).toHaveLength(4);
+});
+
+test('it can add a todo', () => {
+  const { getByTestId, getByLabelText, getByText } = setUp();
+  // const addTodo = getByTestId('add-todo');
+  const textInput = getByLabelText('To-do text');
+
+  fireEvent.change(textInput, { target: { value: 'Finish tech test!' } });
+  fireEvent.click(getByText(/add to-do/i));
+
+  const todos = getByTestId('todos');
+
+  expect(todos.querySelectorAll('li')).toHaveLength(5);
 });

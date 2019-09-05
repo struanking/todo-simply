@@ -6,8 +6,9 @@ interface Todo {
   id: number;
 }
 
-// TODO Improve next id approach e.g. uuid generator
-let nextTodoId = 1;
+// TODO Improve next id approach e.g. uuid generator or get id of last todo and +1
+// also setting as 10 as a quick cheat to get around the seeded data
+let nextTodoId = 10;
 
 let initialState: Todo[] = [];
 
@@ -18,16 +19,10 @@ const todosSlice = createSlice({
     addTodo(state, action) {
       const { text } = action.payload;
       state.push({ id: nextTodoId++, text, completed: false });
-    },
-    toggleTodo(state, action) {
-      const todo = state.find(todo => todo.id === action.payload.id);
-      if (todo) {
-        todo.completed = !todo.completed;
-      }
     }
   }
 });
 
-export const { addTodo, toggleTodo } = todosSlice.actions;
+export const { addTodo } = todosSlice.actions;
 
 export default todosSlice.reducer;

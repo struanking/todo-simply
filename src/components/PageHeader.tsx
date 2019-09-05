@@ -28,7 +28,7 @@ const PageHeader: React.FC = () => {
   return (
     <div data-testid="masthead">
       <h1>{pageTitle}</h1>
-      <time>{formatDate(today)}</time>
+      <time>{formatDate(new Date(today))}</time>
     </div>
   );
 };
