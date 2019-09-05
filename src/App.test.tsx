@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithRedux, fireEvent } from './test-utils';
+import { renderWithRedux, fireEvent, waitForElement } from './test-utils';
 import App from './App';
 
 const DEFAULT_STATE = Object.freeze({
@@ -78,9 +78,17 @@ test('it renders list of todos', () => {
   expect(todos.querySelectorAll('li')).toHaveLength(4);
 });
 
+test('it renders message when there are zero todos', () => {
+  const preloadedState = Object.assign({}, DEFAULT_STATE, {
+    todos: []
+  });
+  const { getByText } = setUp(preloadedState);
+
+  expect(getByText("Lovely, there's nothing to do!")).toBeDefined();
+});
+
 test('it can add a todo', () => {
   const { getByTestId, getByLabelText, getByText } = setUp();
-  // const addTodo = getByTestId('add-todo');
   const textInput = getByLabelText('To-do text');
 
   fireEvent.change(textInput, { target: { value: 'Finish tech test!' } });
@@ -89,4 +97,26 @@ test('it can add a todo', () => {
   const todos = getByTestId('todos');
 
   expect(todos.querySelectorAll('li')).toHaveLength(5);
+});
+
+test('it toggles todo completion', async () => {
+  const { container } = setUp();
+  const checkbox = container.querySelectorAll('input[type="checkbox"]')[0];
+  const initialCheckedSatus = checkbox.checked;
+
+  fireEvent.click(checkbox);
+
+  expect(checkbox.checked !== initialCheckedSatus).toBe(true);
+});
+
+test('it can remove a todo', () => {
+  const { getByTestId } = setUp();
+  const todos = getByTestId('todos');
+
+  expect(todos.querySelectorAll('li')).toHaveLength(4);
+
+  fireEvent.mouseOver(todos.querySelectorAll('li')[1]);
+  fireEvent.click(getByTestId('delete-todo-2'));
+
+  expect(todos.querySelectorAll('li')).toHaveLength(3);
 });
