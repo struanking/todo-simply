@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store/rootReducer';
-import { TodoList } from '../store/todoListsSlice';
+import { RootState } from 'store/rootReducer';
+import { TodoList } from 'store/todoListsSlice';
+import { Masthead } from 'components/Masthead';
+import { Heading } from 'components/Heading';
 
 function formatDate(date: Date, locale = 'en-GB'): string {
   const options = {
@@ -26,10 +28,10 @@ const PageHeader: React.FC = () => {
   });
 
   return (
-    <div data-testid="masthead">
-      <h1>{pageTitle}</h1>
+    <Masthead data-testid="masthead">
+      <Heading>{pageTitle}</Heading>
       <time>{formatDate(new Date(today))}</time>
-    </div>
+    </Masthead>
   );
 };
 
