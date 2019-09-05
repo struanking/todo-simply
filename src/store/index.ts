@@ -5,6 +5,12 @@ const store = configureStore({
   reducer: rootReducer,
   // seed data into redux state
   preloadedState: {
+    todoLists: [
+      {
+        id: 1,
+        title: 'Team To-Do List'
+      }
+    ],
     user: {
       username: 'Struan King',
       avatarUrl: `${process.env.PUBLIC_URL}/profile_sk.jpg`

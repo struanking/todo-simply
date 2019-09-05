@@ -5,11 +5,11 @@ import { Avatar } from './Avatar';
 import { TodoLists } from './TodoLists';
 
 const Header: React.FC = () => {
-  const { user } = useSelector((state: RootState) => state);
+  const user = useSelector((state: RootState) => state.user);
   return (
     <header>
       <Avatar {...user} />
-      <nav>
+      <nav data-testid="todo-list-nav">
         <TodoLists />
       </nav>
     </header>
