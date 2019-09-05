@@ -18,6 +18,7 @@ html {
 body {
     color: inherit;
     background-color: inherit;
+    font-family: sans-serif;
     font-size: inherit;
     min-height: 100vh;
     margin: 0;
