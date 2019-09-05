@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { PageHeader } from './components/PageHeader';
-import { Todos } from './components/Todos';
-import { AddTodo } from './components/AddTodo';
+import { Header } from 'components/Header';
+import { PageHeader } from 'components/PageHeader';
+import { Todos } from 'components/Todos';
+import { AddTodo } from 'components/AddTodo';
 
 const App: React.FC = () => (
   <>
