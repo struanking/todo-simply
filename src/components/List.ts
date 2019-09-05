@@ -13,6 +13,11 @@ const ListItem = styled.li`
 
   &:hover {
     background-color: #ddd;
+    cursor: pointer;
+  }
+
+  &:hover > * {
+    cursor: pointer;
   }
 
   & + & {

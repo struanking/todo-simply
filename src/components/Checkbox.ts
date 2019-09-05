@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   @supports (-webkit-appearance: none) {
     -webkit-appearance: none;
+    background-color: white;
     width: 1.6rem;
     height: 1.6rem;
     border: 1px solid #aaa;

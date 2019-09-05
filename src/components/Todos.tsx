@@ -21,12 +21,12 @@ const TodoItem = ({ completed, id, text }: Props) => {
   const handleFocus = () => setIsActive(true);
   const handleBlur = () => {
     // TODO fix keyboard onBlur
+    setIsActive(false);
   };
   const htmlId = `todo-${id}`;
   return (
     <ListItem
       onFocus={handleFocus}
-      onBlur={handleBlur}
       onMouseEnter={handleFocus}
       onMouseLeave={handleBlur}
     >
