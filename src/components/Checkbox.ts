@@ -32,6 +32,7 @@ const Checkbox = styled.input.attrs({ type: 'checkbox' })`
       margin-left: 1rem;
     }
     &:checked + label {
+      color: #767676;
       text-decoration: line-through;
     }
   }
