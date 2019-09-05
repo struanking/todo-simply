@@ -15,6 +15,28 @@ const store = configureStore({
         title: 'Team To-Do List'
       }
     ],
+    todos: [
+      {
+        text: 'Shortlist features for MVP',
+        completed: false,
+        id: 1
+      },
+      {
+        text: 'Launch PPC campaign with new creative',
+        completed: false,
+        id: 2
+      },
+      {
+        text: 'Define audience brekdown with new data',
+        completed: false,
+        id: 3
+      },
+      {
+        text: 'Launch demo page for SEO analysis',
+        completed: true,
+        id: 4
+      }
+    ],
     user: {
       username: 'Struan King',
       avatarUrl: `${process.env.PUBLIC_URL}/profile_sk.jpg`

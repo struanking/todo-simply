@@ -8,6 +8,28 @@ const DEFAULT_STATE = Object.freeze({
     today: new Date('2019-09-01')
   },
   todoLists: [{ title: 'A todo list', id: 1 }],
+  todos: [
+    {
+      text: 'Shortlist features for MVP',
+      completed: false,
+      id: 1
+    },
+    {
+      text: 'Launch PPC campaign with new creative',
+      completed: false,
+      id: 2
+    },
+    {
+      text: 'Define audience brekdown with new data',
+      completed: false,
+      id: 3
+    },
+    {
+      text: 'Launch demo page for SEO analysis',
+      completed: true,
+      id: 4
+    }
+  ],
   user: {
     avatarUrl: '/profile.jpg',
     username: 'Joe Bloggs'
@@ -45,6 +67,12 @@ test('it renders page header', () => {
   const dateTime = pageHeader.querySelector('time');
 
   expect(heading1).toHaveTextContent('A todo list');
-  expect(dateTime).toBeDefined();
   expect(dateTime).toHaveTextContent('Sun, 1 September');
+});
+
+test('it renders list of todos', () => {
+  const { getByTestId } = setUp();
+  const todos = getByTestId('todos');
+
+  expect(todos.querySelectorAll('li')).toHaveLength(4);
 });

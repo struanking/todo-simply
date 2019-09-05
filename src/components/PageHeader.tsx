@@ -24,7 +24,7 @@ const PageHeader: React.FC = () => {
       today
     };
   });
-  // const today = new Date();
+
   return (
     <div data-testid="masthead">
       <h1>{pageTitle}</h1>
