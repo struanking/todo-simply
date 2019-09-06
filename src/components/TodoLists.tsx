@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/rootReducer';
 import { List, ListItem } from './List';
+import { ListIcon } from './SvgIcons';
 
 const TodoLists: React.FC = () => {
   const { activeTodoListId, todoLists } = useSelector((state: RootState) => {
@@ -15,11 +16,12 @@ const TodoLists: React.FC = () => {
     return <p>There are no todo lists</p>;
   }
 
+  // TODO consider applying the icon using CSS
   return (
     <List>
       {todoLists.map(({ id, title }) => (
         <ListItem key={id} isActive={id === activeTodoListId}>
-          {title}
+          <ListIcon /> {title}
         </ListItem>
       ))}
     </List>

@@ -6,7 +6,7 @@ import { Avatar } from './Avatar';
 import { TodoLists } from './TodoLists';
 
 const StyledHeader = styled.header`
-  padding: 2rem 0;
+  padding: 1rem 0;
 `;
 
 const Header: React.FC = () => {

@@ -13,9 +13,10 @@ const List = styled.ul`
 const ListItem = styled.li<ListItemProps>`
   display: flex;
   align-items: center;
-  padding: 0.5em;
+  padding: 0.65rem;
   background-color: ${props => (props.isActive ? '#e8d6e8' : 'inherit')};
 
+  /* TODO create variants to handle the different list item styles */
   &:hover {
     background-color: #ddd;
     cursor: pointer;
@@ -27,6 +28,12 @@ const ListItem = styled.li<ListItemProps>`
 
   & + & {
     margin-top: 1rem;
+  }
+
+  /* styles for svg only if first child */
+  > svg:first-of-type:first-child {
+    fill: #767676;
+    margin-right: 1rem;
   }
 `;
 
